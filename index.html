@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eunapius subterraneus Metagenome</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Tailwind Configuration for custom scientific colors
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bioBlue: '#0A2540', // Deep bioinformatics blue
+                        dnaTeal: '#00C2CB', // Shimmering DNA teal
+                        scienceGray: '#F6F9FC', // Clean lab gray
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Minimal CSS for the image cross-fade effect */
+        .carousel-item {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            z-index: 0;
+        }
+        .carousel-item.active {
+            opacity: 1;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="bg-scienceGray text-bioBlue font-sans antique">
+
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="text-2xl font-bold text-bioBlue">
+                <span class="text-dnaTeal">E.</span> subterraneus <span class="text-sm font-medium text-gray-500">Metagenome Project</span>
+            </div>
+            <div class="flex items-center gap-4 text-sm font-medium text-gray-700">
+                <span>Bioinformatics</span>
+                <span>Molecular Biology</span>
+                <span class="bg-bioBlue text-white px-3 py-1 rounded-full text-xs">v1.0</span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-12 md:py-20">
+        
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            
+            <div class="space-y-6">
+                <h1 class="text-5xl md:text-6xl font-extrabold tracking-tighter text-bioBlue leading-tight">
+                    Exploring the <span class="text-dnaTeal">metagenome</span> of <br>
+                    <i class="font-medium">Eunapius subterraneus</i>
+                </h1>
+                <p class="text-lg text-gray-700 max-w-lg">
+                    A comprehensive bioinformatics analysis of the microbial communities and functional pathways associated with the rare freshwater cave sponge, <i>Eunapius subterraneus</i>. 
+                </p>
+                <div class="pt-4 flex flex-col sm:flex-row gap-4">
+                    <a href="Krona_pie_chart_on_dataset_29__HTML_html.html" class="inline-flex items-center justify-center rounded-full bg-bioBlue px-8 py-3.5 text-sm font-semibold text-white shadow-lg hover:bg-opacity-90 transition-all gap-2 group">
+                        View Taxonomy Plot
+                        <span class="group-hover:translate-x-1 transition-transform">→</span>
+                    </a>
+                    <a href="Krona_on_dataset_22__HTML_html.html" class="inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-bioBlue shadow-md ring-1 ring-gray-200 hover:bg-gray-50 transition-all gap-2">
+                        View Functional Plot
+                    </a>
+                </div>
+            </div>
+
+            <div class="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl bg-black ring-4 ring-white">
+                <div class="carousel-item active">
+                    <img src="sources/image1.jpg" alt="Metagenomic DNA Visualization" class="w-full h-full object-cover object-center">
+                </div>
+                <div class="carousel-item">
+                    <img src="sources/image2.jpg" alt="Microbial Cell Micrograph Conceptual" class="w-full h-full object-cover object-center">
+                </div>
+                <div class="carousel-item">
+                    <img src="sources/image3.jpg" alt="Bioinformatics Network Map Conceptual" class="w-full h-full object-cover object-center">
+                </div>
+            </div>
+
+        </div>
+
+       
+
+    </main>
+
+    <footer class="bg-bioBlue text-white mt-20">
+        <div class="max-w-7xl mx-auto px-6 py-8 text-center text-sm text-gray-400">
+            Hosted on GitHub Pages | <i>Eunapius subterraneus</i> Metagenome Project | © 2025
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const items = document.querySelectorAll('.carousel-item');
+            let currentIndex = 0;
+            const intervalTime = 5000; // Time per image in milliseconds (5 seconds)
+
+            function cycleImages() {
+                // Remove active class from current image
+                items[currentIndex].classList.remove('active');
+                
+                // Calculate next index (loops back to 0)
+                currentIndex = (currentIndex + 1) % items.length;
+                
+                // Add active class to new image
+                items[currentIndex].classList.add('active');
+            }
+
+            // Start the cycle
+            if (items.length > 1) {
+                setInterval(cycleImages, intervalTime);
+            }
+        });
+    </script>
+</body>
+</html>
